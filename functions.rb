@@ -8,7 +8,8 @@ end
 # For example, histogram('Hello') returns {'h'=>1,'e'=>1,'l'=>2,'o'=>1}
 def histogram(a_string)
   k_maps = {}
-  a_string.downcase.each_char{|c| k_maps[c] = a_string.count(c)}
+  a_string = a_string.downcase.delete ' '
+  a_string.each_char{|c| k_maps[c] = a_string.count(c)}
   k_maps
 end
 
