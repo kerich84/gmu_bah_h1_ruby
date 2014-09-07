@@ -1,13 +1,15 @@
 # Return a reversed copy of the array
 def reverse(an_array)
-  an_array.sort.reverse
+  an_array.reverse
 end
 
 # Return a map of letters and counts of letters
 # Letters should be lowercase before counting
 # For example, histogram('Hello') returns {'h'=>1,'e'=>1,'l'=>2,'o'=>1}
 def histogram(a_string)
-  # write your code here
+  k_maps = {}
+  a_string.downcase.each_char{|c| k_maps[c] = a_string.count(c)}
+  k_maps
 end
 
 # Sum all the numbers in the array
@@ -15,7 +17,11 @@ end
 # Be sure to only sum the numbers
 # (Hint: the is_a? method might be useful here)
 def sum_only_numbers(an_array)
-  # write your code here
+  total = 0
+  for item in an_array
+  	 	total += item if ((item.is_a? Integer) || (item.is_a? Float))
+	end
+  total
 end
 
 # For i from 1 to 100, return an array.
@@ -26,7 +32,21 @@ end
 # Otherwise, the element is simply the value of i
 # For example [1, 2, 'Fizz', 4, 'Buzz', 'Fizz', ..., 14, 'FizzBuzz', ...]
 def fizzbuzz
-  # write your code here
+  i = 1..100
+  k = []
+  for cnt in i
+  	case
+  	when ((cnt % 3 == 0) && (cnt % 5 == 0))
+  		k << 'FizzBuzz'
+  	when cnt % 3 == 0
+  		k << 'Fizz'
+  	when cnt % 5 == 0
+  		k << 'Buzz'
+  	else
+  		k << cnt
+  	end
+  end
+  k
 end
 
 # Uncomment each of these to test your functions
